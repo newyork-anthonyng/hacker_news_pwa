@@ -22,6 +22,7 @@ const Top = () => (
   </div>
 );
 const New = () => <h1>New</h1>
+const Comments = () => <h1>Comments</h1>
 const Show = () => <h1>Show</h1>
 const Ask = () => <h1>Ask</h1>
 const Jobs = () => <h1>Jobs</h1>
@@ -34,9 +35,9 @@ const App = () => (
     <hr />
 
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/top" component={Top} />
+      <Route exact path="/" component={Top} />
       <Route path="/new" component={New} />
+      <Route path="/comments" component={Comments} />
       <Route path="/show" component={Show} />
       <Route path="/ask" component={Ask} />
       <Route path="/jobs" component={Jobs} />
