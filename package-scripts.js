@@ -9,7 +9,7 @@ module.exports = {
     },
 
     dev: {
-      default: "webpack-dev-server --port 8000 --config webpack.dev.config.js --progress --hot --inline --open"
+      default: "webpack-dev-server --port 8000 --config webpack.dev.config.js --progress --hot --inline --history-api-fallback --open"
     }
   }
 };
