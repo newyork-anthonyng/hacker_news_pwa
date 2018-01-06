@@ -19,5 +19,12 @@ module.exports = {
         test: /\.js$/
       }
     ]
+  },
+
+  resolve: {
+    alias: {
+      "react": "preact-compat",
+      "react-dom": "preact-compat"
+    }
   }
 };

@@ -1,32 +1,36 @@
 import { h, render, Component } from "preact";
+import Header from "./components/Header";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-class App extends Component {
-  constructor() {
-    super();
+const Home = () => <Redirect to="/top" />
+const Top = () => <h1>Top</h1>
+const New = () => <h1>New</h1>
+const Show = () => <h1>Show</h1>
+const Ask = () => <h1>Ask</h1>
+const Jobs = () => <h1>Jobs</h1>
+const NoMatch = () => <Redirect to="/" />
 
-    this.state = {
-      time: Date.now()
-    };
-  }
+const App = () => (
+  <div>
+    <Header />
 
-  componentDidMount() {
-    this.timer = setInterval(() => {
-      this.setState({ time: Date.now() });
-    }, 1000);
-  }
+    <hr />
 
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  }
-
-  render(props, { time }) {
-    const localTime = new Date(time).toLocaleString();
-
-    return <span>{localTime}</span>;
-  }
-}
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/top" component={Top} />
+      <Route path="/new" component={New} />
+      <Route path="/show" component={Show} />
+      <Route path="/ask" component={Ask} />
+      <Route path="/jobs" component={Jobs} />
+      <Route component={NoMatch} />
+    </Switch>
+  </div>
+);
 
 render(
-  <App />,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById("app")
 );
